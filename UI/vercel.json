@@ -1,9 +1,0 @@
-{
-    "version": 2,
-    "rewrite": [
-        {
-            "source": "/(.*)",
-            "destination": "/dist/UI/browser/$1"
-        }
-    ]
-}
