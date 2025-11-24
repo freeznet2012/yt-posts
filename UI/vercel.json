@@ -9,7 +9,7 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "/dest/UI/browser/$1"
+            "dest": "/dist/UI/browser/$1"
         }
     ]
 }
