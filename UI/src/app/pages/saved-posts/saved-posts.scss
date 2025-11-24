@@ -1,7 +1,6 @@
-@import '../../../assets/styles/variables';
+@use '../../../assets/styles/variables' as *;
 
 .saved-container {
-    max-width: 800px;
     margin: 0 auto;
     padding: $spacing-14 $spacing-4 $spacing-8; // Combined padding with horizontal spacing
 

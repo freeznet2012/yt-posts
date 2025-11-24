@@ -1,7 +1,6 @@
-@import '../../../assets/styles/variables';
+@use '../../../assets/styles/variables' as *;
 
 .dashboard-container {
-    max-width: 1200px; // Increased width for 3-column layout
     margin: 0 auto;
     padding: $spacing-6 $spacing-8; // Increased horizontal padding
 
