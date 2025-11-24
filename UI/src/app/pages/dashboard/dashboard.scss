@@ -4,28 +4,15 @@
     max-width: 1200px; // Increased width for 3-column layout
     margin: 0 auto;
     padding: $spacing-6 $spacing-4;
-    display: grid;
-    grid-template-columns: 1fr 350px; // Main feed + Right Sidebar
-    gap: $spacing-8;
 
     .main-content {
         min-width: 0; // Prevent overflow
+        padding-top: $spacing-28;
 
         .feed {
             display: flex;
             flex-direction: column;
             gap: $spacing-4;
-        }
-    }
-
-    .sidebar-content {
-        display: none; // Hide on smaller screens
-
-        @media (min-width: 1024px) {
-            display: block;
-            position: sticky;
-            top: 88px; // TopBar height + padding
-            height: fit-content;
         }
     }
 }

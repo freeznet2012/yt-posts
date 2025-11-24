@@ -3,16 +3,15 @@
         <app-filter-chips [chips]="filterChips" (selectionChange)="onFilterChange($event)">
         </app-filter-chips>
 
-        <app-create-post></app-create-post>
+        <app-search-filter [channels]="channels" (searchChange)="onSearchChange($event)"
+            (sortChange)="onSortChange($event)" (contentTypeChange)="onContentTypeChange($event)"
+            (channelFilterChange)="onChannelFilterChange($event)">
+        </app-search-filter>
 
         <div class="feed">
             @for (post of posts; track post.id) {
             <app-post-card [post]="post"></app-post-card>
             }
         </div>
-    </div>
-
-    <div class="sidebar-content">
-        <app-right-sidebar></app-right-sidebar>
     </div>
 </div>

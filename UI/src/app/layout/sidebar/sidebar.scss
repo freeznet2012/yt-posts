@@ -1,5 +1,59 @@
 @import '../../../assets/styles/variables';
 
+// Toggle button outside sidebar
+.sidebar-toggle-btn {
+    position: fixed;
+    left: $spacing-4;
+    top: calc(64px + #{$spacing-4});
+    background-color: $surface-color;
+    border: 1px solid $border-color;
+    border-radius: $radius-md;
+    width: 40px;
+    height: 40px;
+    display: none; // Hidden by default
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: $text-secondary;
+    z-index: 1001;
+
+    &:hover {
+        background-color: $background-color;
+        border-color: $primary-color;
+        color: $primary-color;
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+
+    svg {
+        transition: all 0.2s ease;
+
+        line {
+            stroke-width: 2;
+        }
+    }
+
+    // Always show on mobile
+    @media (max-width: 768px) {
+        display: flex;
+
+        // When sidebar is NOT collapsed (expanded), move to top-right corner inside sidebar
+        &:not(.show) {
+            left: calc(260px - 40px - #{$spacing-4}); // sidebar width - button width - spacing
+            right: auto;
+            top: calc(64px + #{$spacing-3}); // Align with sidebar content
+        }
+    }
+
+    // Show on desktop when sidebar is collapsed (controlled by component)
+    &.show {
+        display: flex;
+    }
+}
+
 .sidebar {
     width: 260px;
     background-color: $surface-color;
@@ -8,8 +62,11 @@
     position: fixed;
     top: 64px;
     left: 0;
-    padding: $spacing-6 $spacing-4;
+    padding: $spacing-14 $spacing-4;
     overflow-y: auto;
+    overflow-x: hidden;
+    transition: transform 0.3s ease;
+    z-index: 100;
 
     .nav-section {
         display: flex;
@@ -26,10 +83,16 @@
             font-weight: 500;
             transition: $transition-base;
             position: relative;
+            white-space: nowrap;
 
             svg {
                 opacity: 0.7;
                 transition: $transition-base;
+                flex-shrink: 0;
+            }
+
+            span {
+                transition: opacity 0.3s ease;
             }
 
             &:hover {
@@ -64,6 +127,18 @@
                     border-radius: 0 $radius-sm $radius-sm 0;
                 }
             }
+        }
+    }
+
+    // Collapsed state
+    &.collapsed {
+        transform: translateX(-100%);
+    }
+
+    // Mobile styles
+    @media (max-width: 768px) {
+        &:not(.collapsed) {
+            box-shadow: $shadow-lg;
         }
     }
 }
