@@ -1,8 +1,8 @@
 <!-- Toggle button outside sidebar so it's always visible -->
-<button class="sidebar-toggle-btn" [class.show]="isCollapsed" (click)="toggleSidebar()"
-    [attr.aria-label]="isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'">
+<button class="sidebar-toggle-btn" [class.show]="layoutService.isSidebarCollapsed()" (click)="toggleSidebar()"
+    [attr.aria-label]="layoutService.isSidebarCollapsed() ? 'Expand sidebar' : 'Collapse sidebar'">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        @if (isCollapsed) {
+        @if (layoutService.isSidebarCollapsed()) {
         <!-- Hamburger menu icon -->
         <line x1="3" y1="12" x2="21" y2="12"></line>
         <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -15,7 +15,7 @@
     </svg>
 </button>
 
-<nav class="sidebar" [class.collapsed]="isCollapsed">
+<nav class="sidebar" [class.collapsed]="layoutService.isSidebarCollapsed()">
     <div class="nav-section">
         <a routerLink="/dashboard" routerLinkActive="active" class="nav-item">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

@@ -2,21 +2,14 @@
 
 .filter-chips-container {
     width: 100%;
-    overflow: hidden;
     position: relative;
     margin-bottom: $spacing-4;
 
     .chips-scroll {
         display: flex;
         gap: $spacing-3;
-        overflow-x: auto;
+        flex-wrap: wrap; // Allow wrapping
         padding-bottom: $spacing-2;
-        scrollbar-width: none; // Firefox
-        -ms-overflow-style: none; // IE/Edge
-
-        &::-webkit-scrollbar {
-            display: none; // Chrome/Safari
-        }
 
         .chip {
             white-space: nowrap;

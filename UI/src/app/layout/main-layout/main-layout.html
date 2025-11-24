@@ -1,8 +1,7 @@
 <app-top-bar></app-top-bar>
 <div class="layout-container">
   <app-sidebar></app-sidebar>
-  <main class="content">
+  <main class="content" [class.sidebar-collapsed]="layoutService.isSidebarCollapsed()">
     <router-outlet></router-outlet>
   </main>
 </div>
-

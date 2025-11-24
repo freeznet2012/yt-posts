@@ -2,6 +2,7 @@ import { Component, HostListener } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { filter } from 'rxjs/operators';
+import { LayoutService } from '../../services/layout.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,12 +11,13 @@ import { filter } from 'rxjs/operators';
   styleUrl: './sidebar.scss',
 })
 export class Sidebar {
-  isCollapsed: boolean = false;
-
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    public layoutService: LayoutService
+  ) {
     // Collapse sidebar by default on mobile, expanded on desktop
     if (typeof window !== 'undefined') {
-      this.isCollapsed = window.innerWidth < 768;
+      this.layoutService.setSidebarCollapsed(window.innerWidth < 768);
     }
 
     // Auto-collapse sidebar on mobile after navigation
@@ -23,7 +25,7 @@ export class Sidebar {
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
         if (typeof window !== 'undefined' && window.innerWidth < 768) {
-          this.isCollapsed = true;
+          this.layoutService.setSidebarCollapsed(true);
         }
       });
   }
@@ -32,11 +34,11 @@ export class Sidebar {
   onResize() {
     // Auto-collapse on mobile, auto-expand on desktop
     if (typeof window !== 'undefined') {
-      this.isCollapsed = window.innerWidth < 768;
+      this.layoutService.setSidebarCollapsed(window.innerWidth < 768);
     }
   }
 
   toggleSidebar() {
-    this.isCollapsed = !this.isCollapsed;
+    this.layoutService.toggleSidebar();
   }
 }

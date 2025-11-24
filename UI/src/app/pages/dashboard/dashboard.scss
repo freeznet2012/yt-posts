@@ -3,11 +3,15 @@
 .dashboard-container {
     max-width: 1200px; // Increased width for 3-column layout
     margin: 0 auto;
-    padding: $spacing-6 $spacing-4;
+    padding: $spacing-6 $spacing-8; // Increased horizontal padding
+
+    @media (max-width: 768px) {
+        padding: $spacing-4 $spacing-4; // Reset for mobile but ensure enough space
+    }
 
     .main-content {
         min-width: 0; // Prevent overflow
-        padding-top: $spacing-28;
+        padding-top: $spacing-14;
 
         .feed {
             display: flex;

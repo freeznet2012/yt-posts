@@ -3,8 +3,7 @@
 .saved-container {
     max-width: 800px;
     margin: 0 auto;
-    padding-bottom: $spacing-8;
-    padding-top: $spacing-28;
+    padding: $spacing-14 $spacing-4 $spacing-8; // Combined padding with horizontal spacing
 
     .page-header {
         display: flex;
