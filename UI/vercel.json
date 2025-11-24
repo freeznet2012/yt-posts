@@ -1,15 +1,9 @@
 {
     "version": 2,
-    "builds": [
+    "rewrite": [
         {
-            "src": "dist/UI/browser/**/*",
-            "use": "@vercel/static"
-        }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/dist/UI/browser/$1"
+            "source": "/(.*)",
+            "destination": "/dist/UI/browser/$1"
         }
     ]
 }
