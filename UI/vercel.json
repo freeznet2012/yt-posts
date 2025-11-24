@@ -1,10 +1,15 @@
 {
     "version": 2,
-    "public": "dist/UI/browser",
-    "rewrites": [
+    "builds": [
         {
-            "source": "/(.*)",
-            "destination": "/index.html"
+            "src": "dist/UI/browser/**/*",
+            "use": "@vercel/static"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/dest/UI/browser/$1"
         }
     ]
 }
