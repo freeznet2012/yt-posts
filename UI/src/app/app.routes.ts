@@ -5,6 +5,8 @@ import { SavedPosts } from './pages/saved-posts/saved-posts';
 import { Channels } from './pages/channels/channels';
 import { Landing } from './pages/landing/landing';
 import { Features } from './pages/features/features';
+import { LoginComponent } from './pages/login/login.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
     {
@@ -16,8 +18,13 @@ export const routes: Routes = [
         component: Features
     },
     {
+        path: 'login',
+        component: LoginComponent
+    },
+    {
         path: '',
         component: MainLayout,
+        canActivate: [authGuard],
         children: [
             { path: 'dashboard', component: Dashboard },
             { path: 'saved', component: SavedPosts },

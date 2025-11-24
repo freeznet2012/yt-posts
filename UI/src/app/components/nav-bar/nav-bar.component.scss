@@ -1,0 +1,44 @@
+@use 'assets/styles/variables' as *;
+
+.navbar {
+    background-color: $surface-color;
+    border-bottom: 1px solid $border-color;
+    padding: $spacing-4 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: $font-size-xl;
+        font-weight: 700;
+        color: $primary-color;
+        text-decoration: none;
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: $spacing-6;
+
+        a:not(.btn) {
+            font-weight: 500;
+            color: $text-secondary;
+            transition: $transition-base;
+            text-decoration: none;
+
+            &.active {
+                color: $primary-color;
+            }
+
+            &:hover {
+                color: $text-primary;
+            }
+        }
+    }
+}
