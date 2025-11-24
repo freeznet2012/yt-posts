@@ -1,0 +1,27 @@
+<div class="filter-dropdown" [class.open]="isOpen">
+    <button class="dropdown-trigger" (click)="toggleDropdown()">
+        <span class="label">{{ label }}</span>
+        <span class="selected-value">{{ selectedOption?.label || placeholder }}</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            class="chevron">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+    </button>
+
+    @if (isOpen) {
+    <div class="dropdown-menu">
+        @for (option of options; track option.value) {
+        <button class="dropdown-item" [class.selected]="option.value === selectedOption?.value"
+            (click)="selectOption(option)">
+            {{ option.label }}
+            @if (option.value === selectedOption?.value) {
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                class="check">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            }
+        </button>
+        }
+    </div>
+    }
+</div>

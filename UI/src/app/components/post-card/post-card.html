@@ -1,0 +1,67 @@
+<div class="post-card">
+    <div class="post-header">
+        <div class="author-info">
+            <div class="avatar">
+                <img [src]="post.authorAvatar" [alt]="post.authorName">
+            </div>
+            <div class="meta">
+                <span class="author-name">{{ post.authorName }}</span>
+                <span class="timestamp">{{ post.timestamp }}</span>
+            </div>
+        </div>
+        <button class="options-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="1"></circle>
+                <circle cx="12" cy="5" r="1"></circle>
+                <circle cx="12" cy="19" r="1"></circle>
+            </svg>
+        </button>
+    </div>
+
+    <div class="post-content">
+        <p class="text-content">{{ post.content }}</p>
+
+        @if (post.mediaType === 'image') {
+        <div class="media-container image">
+            <img [src]="post.mediaUrl" alt="Post media">
+        </div>
+        } @else if (post.mediaType === 'video') {
+        <div class="media-container video">
+            <div class="play-overlay">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="white" stroke="currentColor" stroke-width="2">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+            </div>
+            <img [src]="post.thumbnailUrl" alt="Video thumbnail">
+        </div>
+        }
+    </div>
+
+    <div class="post-footer">
+        <div class="actions-left">
+            <button class="action-btn like">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                        d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3">
+                    </path>
+                </svg>
+                <span>{{ post.likes }}</span>
+            </button>
+            <button class="action-btn comment">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                    </path>
+                </svg>
+                <span>{{ post.comments }}</span>
+            </button>
+        </div>
+        <div class="actions-right">
+            <button class="action-btn save">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>

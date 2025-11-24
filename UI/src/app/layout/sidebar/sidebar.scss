@@ -1,0 +1,69 @@
+@import '../../../assets/styles/variables';
+
+.sidebar {
+    width: 260px;
+    background-color: $surface-color;
+    border-right: 1px solid $border-color;
+    height: calc(100vh - 64px);
+    position: fixed;
+    top: 64px;
+    left: 0;
+    padding: $spacing-6 $spacing-4;
+    overflow-y: auto;
+
+    .nav-section {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-2;
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: $spacing-3;
+            padding: $spacing-3 $spacing-4;
+            border-radius: $radius-lg;
+            color: $text-secondary;
+            font-weight: 500;
+            transition: $transition-base;
+            position: relative;
+
+            svg {
+                opacity: 0.7;
+                transition: $transition-base;
+            }
+
+            &:hover {
+                background-color: $background-color;
+                color: $text-primary;
+
+                svg {
+                    opacity: 1;
+                    transform: scale(1.1);
+                }
+            }
+
+            &.active {
+                background-color: rgba($primary-color, 0.08);
+                color: $primary-color;
+                font-weight: 600;
+
+                svg {
+                    opacity: 1;
+                    stroke: $primary-color;
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    height: 20px;
+                    width: 3px;
+                    background-color: $primary-color;
+                    border-radius: 0 $radius-sm $radius-sm 0;
+                }
+            }
+        }
+    }
+}

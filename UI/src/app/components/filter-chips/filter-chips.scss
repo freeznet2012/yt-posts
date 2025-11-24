@@ -1,0 +1,44 @@
+@import '../../../assets/styles/variables';
+
+.filter-chips-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: $spacing-4;
+
+    .chips-scroll {
+        display: flex;
+        gap: $spacing-3;
+        overflow-x: auto;
+        padding-bottom: $spacing-2;
+        scrollbar-width: none; // Firefox
+        -ms-overflow-style: none; // IE/Edge
+
+        &::-webkit-scrollbar {
+            display: none; // Chrome/Safari
+        }
+
+        .chip {
+            white-space: nowrap;
+            padding: $spacing-2 $spacing-4;
+            border-radius: $radius-md;
+            border: 1px solid $border-color;
+            background-color: $surface-color; // Default background
+            color: $text-primary;
+            font-size: $font-size-sm;
+            font-weight: 500;
+            cursor: pointer;
+            transition: $transition-base;
+
+            &:hover {
+                background-color: $background-color; // Hover background
+            }
+
+            &.active {
+                background-color: $text-primary; // Active background (black/dark)
+                color: $surface-color; // Active text (white)
+                border-color: $text-primary;
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+<div class="channels-container">
+    <div class="page-header">
+        <h1 class="page-title">Channels</h1>
+        <button class="btn btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                style="margin-right: 8px;">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="16"></line>
+                <line x1="8" y1="12" x2="16" y2="12"></line>
+            </svg>
+            Discover Channels
+        </button>
+    </div>
+
+    <div class="channels-grid">
+        @for (channel of channels; track channel.id) {
+        <app-channel-list-item [channel]="channel"></app-channel-list-item>
+        }
+    </div>
+</div>

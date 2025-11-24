@@ -1,0 +1,76 @@
+@import '../../../assets/styles/variables';
+
+.saved-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: $spacing-8;
+
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: $spacing-8;
+        padding: $spacing-4 0;
+
+        .page-title {
+            font-size: $font-size-2xl;
+            font-weight: 800;
+            color: $text-primary;
+            letter-spacing: -0.5px;
+        }
+
+        .controls {
+            display: flex;
+            gap: $spacing-3;
+            align-items: center;
+
+            .search-bar {
+                position: relative;
+                display: flex;
+                align-items: center;
+
+                svg {
+                    position: absolute;
+                    left: $spacing-4;
+                    color: $text-secondary;
+                    width: 18px;
+                    height: 18px;
+                    transition: $transition-base;
+                    pointer-events: none;
+                }
+
+                input {
+                    height: 40px;
+                    padding: 0 $spacing-4 0 44px;
+                    border: 1px solid $border-color;
+                    border-radius: $radius-lg;
+                    font-size: $font-size-sm;
+                    width: 280px;
+                    transition: $transition-base;
+                    outline: none;
+                    background-color: $surface-color;
+                    box-shadow: $shadow-sm;
+
+                    &::placeholder {
+                        color: $text-secondary;
+                    }
+
+                    &:focus {
+                        border-color: $primary-color;
+                        box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+                    }
+
+                    &:focus+svg {
+                        color: $primary-color;
+                    }
+                }
+            }
+        }
+    }
+
+    .feed {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-6;
+    }
+}

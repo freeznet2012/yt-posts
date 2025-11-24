@@ -1,0 +1,16 @@
+<div class="channel-card">
+    <div class="channel-header">
+        <div class="avatar">
+            <img [src]="channel.avatarUrl" [alt]="channel.name">
+        </div>
+        <div class="info">
+            <h3 class="name">{{ channel.name }}</h3>
+            <span class="subscribers">{{ channel.subscribers }} subscribers</span>
+        </div>
+    </div>
+
+    <div class="actions">
+        <button class="btn btn-primary">View Posts</button>
+        <button class="btn btn-ghost">Manage</button>
+    </div>
+</div>

@@ -1,0 +1,113 @@
+@import '../../../assets/styles/variables';
+
+.filter-dropdown {
+    position: relative;
+    display: inline-block;
+
+    .dropdown-trigger {
+        display: flex;
+        align-items: center;
+        gap: $spacing-2;
+        background-color: $surface-color;
+        border: 1px solid $border-color;
+        padding: 0 $spacing-4;
+        height: 40px;
+        border-radius: $radius-lg;
+        color: $text-primary;
+        font-size: $font-size-sm;
+        transition: $transition-base;
+        box-shadow: $shadow-sm;
+        cursor: pointer;
+
+        &:hover {
+            border-color: $primary-color;
+            box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+        }
+
+        .label {
+            color: $text-secondary;
+            font-weight: 500;
+            margin-right: $spacing-1;
+        }
+
+        .selected-value {
+            font-weight: 600;
+            color: $primary-color;
+        }
+
+        .chevron {
+            color: $text-secondary;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    }
+
+    &.open {
+        .dropdown-trigger {
+            border-color: $primary-color;
+            box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+
+            .chevron {
+                transform: rotate(180deg);
+                color: $primary-color;
+            }
+        }
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: calc(100% + $spacing-2);
+        right: 0;
+        min-width: 200px;
+        background-color: $surface-color;
+        border: 1px solid rgba($border-color, 0.5);
+        border-radius: $radius-xl;
+        box-shadow: $shadow-xl;
+        z-index: 100;
+        padding: $spacing-2;
+        animation: slideDown 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-origin: top right;
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: $spacing-3 $spacing-4;
+            border: none;
+            background: none;
+            text-align: left;
+            font-size: $font-size-sm;
+            color: $text-primary;
+            border-radius: $radius-lg;
+            transition: $transition-base;
+            font-weight: 500;
+
+            &:hover {
+                background-color: $background-color;
+                color: $primary-color;
+            }
+
+            &.selected {
+                background-color: rgba($primary-color, 0.05);
+                color: $primary-color;
+                font-weight: 600;
+            }
+
+            .check {
+                color: $primary-color;
+            }
+        }
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}

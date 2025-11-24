@@ -1,0 +1,9 @@
+<div class="filter-chips-container">
+    <div class="chips-scroll">
+        @for (chip of chips; track chip.value) {
+        <button class="chip" [class.active]="activeChip === chip.value" (click)="selectChip(chip.value)">
+            {{ chip.label }}
+        </button>
+        }
+    </div>
+</div>

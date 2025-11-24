@@ -1,0 +1,28 @@
+<div class="right-sidebar-container">
+    <div class="section">
+        <h3 class="section-title">Who to follow</h3>
+        <div class="suggestion-list">
+            @for (channel of suggestedChannels; track channel.id) {
+            <div class="suggestion-item">
+                <div class="avatar">
+                    <img [src]="channel.avatarUrl" [alt]="channel.name">
+                </div>
+                <div class="info">
+                    <div class="name">{{ channel.name }}</div>
+                    <div class="subscribers">{{ channel.subscribers }} subs</div>
+                </div>
+                <button class="btn-follow">Follow</button>
+            </div>
+            }
+        </div>
+    </div>
+
+    <div class="section">
+        <h3 class="section-title">Trending Topics</h3>
+        <div class="tags-list">
+            @for (tag of trendingTags; track tag) {
+            <div class="tag-item">#{{ tag }}</div>
+            }
+        </div>
+    </div>
+</div>
