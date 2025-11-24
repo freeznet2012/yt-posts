@@ -1,4 +1,6 @@
 {
+    "version": 2,
+    "public": "dist/UI/browser",
     "rewrites": [
         {
             "source": "/(.*)",
